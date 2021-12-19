@@ -36,7 +36,8 @@ namespace CourseApp.Controllers
         //localhost:44383/course/apply  method:POST
         // Name=value & Email=value & Phone=value & Confirm=value aşağıdaki parametreler bu aldıkları value lara karşılık gelmiş olacak
         [HttpPost]
-        public IActionResult Apply(string Name,string Email,string Phone,bool Confirm)
+        public IActionResult Apply(Student student)  // Apply metodu içinde bilgiyi paketleyeceğimiz bir model yapısı var.
+                                                     // Student tipinde bir bilgiyi form üzerinden direkt alabiliriz
         {
 
             // database kaydı
