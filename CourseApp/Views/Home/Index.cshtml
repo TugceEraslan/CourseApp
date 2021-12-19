@@ -1,0 +1,18 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, AuthoringTagHelpers
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Home</title>
+</head>
+<body>
+    <p>@Html.Raw(ViewBag.Greeting) @Html.Raw(ViewBag.UserName), Nasılsın ?</p>
+
+    <p>
+        @*<a href="/Course/Apply">Başvuru Yap</a>*@
+        <!--<a asp-action="apply">Başvuru Yap</a>-->     @*/home/apply   anlar*@
+        <a asp-action="apply" asp-controller="course">Başvuru Yap</a>     @*/home/apply   anlar*@
+    </p>
+
+</body>
+</html>
