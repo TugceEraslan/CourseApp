@@ -1,0 +1,31 @@
+﻿
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, AuthoringTagHelpers
+
+@using CourseApp.Models
+
+@model Student
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Thanks</title>
+</head>
+<body>
+    <h2>Merhaba @Model.Name</h2>   @* @model Student içerisindeki bilgilerden @Model ile alıp kullanabildik*@
+    <hr>
+    @if (Model.Confirm == true) { 
+        <span>
+            Kursa katılmış olduğunuzdan dolayı mutlu olduk.
+        </span>
+        <div>
+            Diğer katılımcıları <a asp-action="List">görüntüle</a>
+        </div>
+       
+    }
+    else
+    {
+    <span>
+        Umarım fikriniz değişir. Tekrar görüşürüz.
+    </span>      
+     }
+</body>
+</html>

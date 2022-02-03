@@ -1,9 +1,10 @@
 ﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @addTagHelper *, AuthoringTagHelpers
 
-
-@model CourseApp.Models.Student
-@*@model CourseApp.Models.Student*@   @*Her iki yöntemde olur*@
+@using CourseApp.Models                         @*@using CourseApp.Models kullandıktan sonra @model Student ı direkt kullanbilirsin*@
+@*@model CourseApp.Models.Student*@
+@model Student
+                                                @*@model CourseApp.Models.Student ya da @model Student. Her iki yöntemde olur*@
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -12,31 +13,33 @@
 </head>
 <body>
 
-    <form  asp-controller="Course"  asp-action="Apply" method="POST">    @*Tag helpers apply in zaten course controller içine bağlı bir view olduğu için için*@
+    <form asp-controller="Course" asp-action="Apply" method="POST">
+        @*Tag helpers apply in zaten course controller içine bağlı bir view olduğu için için*@
 
-    <p>
-        <label asp-for="Name">Adınız: </label>
-        <input asp-for="Name" />
-    <span asp-validation-for="Name" class="text-danger"></span>
-    </p>
+        <p>
+            <label asp-for="Name">Adınız: </label>
+            <input asp-for="Name" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </p>
 
-    <p>
-        <label asp-for="Email">Eposta: </label>
-        <input asp-for="Email" />
-    <span asp-validation-for="Email" class="text-danger"></span>
-    </p>
+        <p>
+            <label asp-for="Email">Eposta: </label>
+            <input asp-for="Email" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </p>
 
-    <p>
-        <label asp-for="Phone">Telefon: </label>
-        <input asp-for="Phone" />
-    <span asp-validation-for="Phone" class="text-danger"></span>
-    </p>
+        <p>
+            <label asp-for="Phone">Telefon: </label>
+            <input asp-for="Phone" />
+            <span asp-validation-for="Phone" class="text-danger"></span>
+        </p>
 
         <p>
             <label asp-for="Confirm">Kursa katılacak mısınız? </label>
             <select asp-for="Confirm">
-                    <option value="true"> Evet, geliyorum</option>
-                    <option value="false"> Hayır, gelmiyorum</option>
+                <option value=""> Seçiniz:</option>
+                <option value="true"> Evet, geliyorum</option>
+                <option value="false"> Hayır, gelmiyorum</option>
             </select>
         </p>
 
@@ -45,9 +48,9 @@
     </form>
 
     <!--<form action="/course/apply" method="POST">-->
-        @*Tag helpers apply in zaten course controller içine bağlı bir view olduğu için için*@
+    @*Tag helpers apply in zaten course controller içine bağlı bir view olduğu için için*@
 
-        <!--<p>
+    <!--<p>
             <label for="Name">Adınız: </label>
             <input type="text" name="Name" />
         </p>

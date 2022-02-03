@@ -14,7 +14,7 @@ namespace CourseApp.Controllers
         {
             int saat = DateTime.Now.Hour;
 
-            ViewBag.Greeting= saat>12 ? "İyi Günler" : "İyi Geceler";
+            ViewBag.Greeting= saat>12 ? "İyi Günler" : "Günaydın";
             ViewBag.UserName = "Tuğçe";
 
 

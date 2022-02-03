@@ -35,13 +35,18 @@ namespace CourseApp.Controllers
 
         //localhost:44383/course/apply  method:POST
         // Name=value & Email=value & Phone=value & Confirm=value aşağıdaki parametreler bu aldıkları value lara karşılık gelmiş olacak
+        // public IActionResult Apply(string Name,string Email,string Phone,bool Confirm)
         [HttpPost]
         public IActionResult Apply(Student student)  // Apply metodu içinde bilgiyi paketleyeceğimiz bir model yapısı var.
                                                      // Student tipinde bir bilgiyi form üzerinden direkt alabiliriz
         {
 
+            // Model binding (request in body sinde geliyor bize bir model olarak(Name=value & Email=value & Phone=value & Confirm=value))
             // database kaydı
-            return View();
+            Repository.AddStudent(student);
+            return View("Thanks",student);   // Kayıt işlemi yapıldıktan sonra Thanks view ına yönlendirebiliriz.
+                                             // Gönderirkende student modelini Thanks view ı üzerine taşıyalım.
+                                             // Yani kullanıcının girdiği bilgilerden Thanks view ıda haberdar olsun
         }
         public IActionResult Details()
         {
@@ -63,7 +68,8 @@ namespace CourseApp.Controllers
 
         public IActionResult List()
         {
-            return View();
+            var students = Repository.Students.Where(i => i.Confirm == true); // Student modeli içindeki Confirm alanı true olanları getirir 
+            return View(students);
         }
 
     }

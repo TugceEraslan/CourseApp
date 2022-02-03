@@ -1,8 +1,48 @@
-﻿<html xmlns="http://www.w3.org/1999/xhtml">
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, AuthoringTagHelpers
+
+@using CourseApp.Models
+@model IEnumerable<Student>
+<!---Thanks view ında bir tane student ve model de bir tane student a karşılık geliyor.
+ O yüzden de direkt model.name e ulaşabiliyorduk --->
+
+<!---Ancak bu List view ında bir Liste olduğundan dolayı student bilgisi sayfanın modeli olacağından dolayı
+    her bir liste elemanına ulaşmak için bi döngüye ihtiyacımız var --->
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>Course</title>
 </head>
 <body>
-    course/list view
+    <!--course/list view-->
+  <table>
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Email</td>
+                <td>Phone</td>
+                <td>Confirm</td>
+            </tr>
+        </thead>
+
+   <tbody> 
+<!--Tekrarlanacak alanlar foreach içinde <tbody> arasına yazılır-->
+
+   @foreach(var student in Model)
+     {
+       <tr>
+           <td>@student.Name</td>
+           <td>@student.Email</td>
+           <td>@student.Phone</td>
+           <td>@student.Confirm</td>
+       </tr>
+      }
+
+    </tbody>
+  </table>
+
+
+
+
 </body>
 </html>
