@@ -16,6 +16,7 @@
     <form asp-controller="Course" asp-action="Apply" method="POST">
         @*Tag helpers apply in zaten course controller içine bağlı bir view olduğu için için*@
 
+        <div asp-validation-summary="All"></div>   @*Bu satır student modeli içerisinde validation a uymayan bir kural görürse hata mesajı verir*@
         <p>
             <label asp-for="Name">Adınız: </label>
             <input asp-for="Name" />

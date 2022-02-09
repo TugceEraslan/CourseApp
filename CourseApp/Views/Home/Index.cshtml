@@ -3,15 +3,28 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/style.css">
     <title>Home</title>
 </head>
 <body>
-    <p>@Html.Raw(ViewBag.Greeting) @Html.Raw(ViewBag.UserName), Nasılsın ?</p>
+
+    <div class="container m-4">
+        <div class="card mx-auto" style="width:500px;">
+            <div class="card-header">
+                @Html.Raw(ViewBag.Greeting) @Html.Raw(ViewBag.UserName), Nasılsın ?
+            </div>
+            <div class="card-body">
+                <p class="card-text">Size uygun kurs içerikleri için her daim çalışmaktayız :) </p>
+                <a asp-action="apply" asp-controller="course" class="btn btn-primary">Başvuru Yap</a>     @*/home/apply   anlar*@
+            </div>
+        </div>
+    </div>
 
     <p>
         @*<a href="/Course/Apply">Başvuru Yap</a>*@
         <!--<a asp-action="apply">Başvuru Yap</a>-->     @*/home/apply   anlar*@
-        <a asp-action="apply" asp-controller="course">Başvuru Yap</a>     @*/home/apply   anlar*@
+       
     </p>
 
 </body>

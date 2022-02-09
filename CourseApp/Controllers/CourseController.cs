@@ -41,12 +41,24 @@ namespace CourseApp.Controllers
                                                      // Student tipinde bir bilgiyi form üzerinden direkt alabiliriz
         {
 
-            // Model binding (request in body sinde geliyor bize bir model olarak(Name=value & Email=value & Phone=value & Confirm=value))
-            // database kaydı
-            Repository.AddStudent(student);
-            return View("Thanks",student);   // Kayıt işlemi yapıldıktan sonra Thanks view ına yönlendirebiliriz.
-                                             // Gönderirkende student modelini Thanks view ı üzerine taşıyalım.
-                                             // Yani kullanıcının girdiği bilgilerden Thanks view ıda haberdar olsun
+            if (ModelState.IsValid)  // ModelState bizim için gelen modeldeki yani student teki değere yani
+                                     // ordaki kuralların geçip geçmemesine bakar
+                                    // true ise ilk blok false ise else bloğu çalışır
+            {
+                // Model binding (request in body sinde geliyor bize bir model olarak(Name=value & Email=value & Phone=value & Confirm=value))
+                // database kaydı
+                Repository.AddStudent(student);
+                return View("Thanks", student);   // Kayıt işlemi yapıldıktan sonra Thanks view ına yönlendirebiliriz.
+                                                  // Gönderirkende student modelini Thanks view ı üzerine taşıyalım.
+                                                  // Yani kullanıcının girdiği bilgilerden Thanks view ıda haberdar olsun
+            }
+
+            else   // eğer validationdan geçemediği bir durum varsa kuulanıcıya sayfayı tekrar yönlendiririz
+            {
+                return View(student);  // student ıda view e taşıyalım ki
+                                       // kullanıcı yapmış olduğu hatayı view da görebilsin
+            }
+
         }
         public IActionResult Details()
         {

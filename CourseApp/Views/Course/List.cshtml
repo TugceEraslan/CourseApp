@@ -25,20 +25,19 @@
             </tr>
         </thead>
 
-   <tbody> 
-<!--Tekrarlanacak alanlar foreach içinde <tbody> arasına yazılır-->
+        <tbody>
 
-   @foreach(var student in Model)
-     {
-       <tr>
-           <td>@student.Name</td>
-           <td>@student.Email</td>
-           <td>@student.Phone</td>
-           <td>@student.Confirm</td>
-       </tr>
-      }
+            @foreach (var student in Model)@*Tekrarlanacak alanlar foreach içinde <tbody> arasına yazılır*@
+            {
+                <tr>
+                    <td>@student.Name</td>
+                    <td>@student.Email</td>
+                    <td>@student.Phone</td>
+                    <td>@student.Confirm</td>
+                </tr>
+            }
 
-    </tbody>
+        </tbody>
   </table>
 
 
