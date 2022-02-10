@@ -9,44 +9,57 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/style.css">
     <title>Apply</title>
 </head>
 <body>
 
-    <form asp-controller="Course" asp-action="Apply" method="POST">
-        @*Tag helpers apply in zaten course controller içine bağlı bir view olduğu için için*@
+    <div class="container m-4">
+        <div class="card mx-auto" style="width:500px;">
+            <div class="card-header">
+                Başvuru Formu
+            </div>
+            <div class="card-body">
+                <form asp-controller="Course" asp-action="Apply" method="POST">
+                    @*Tag helpers apply in zaten course controller içine bağlı bir view olduğu için için*@
 
-        <div asp-validation-summary="All"></div>   @*Bu satır student modeli içerisinde validation a uymayan bir kural görürse hata mesajı verir*@
-        <p>
-            <label asp-for="Name">Adınız: </label>
-            <input asp-for="Name" />
-            <span asp-validation-for="Name" class="text-danger"></span>
-        </p>
+                    <div asp-validation-summary="All"></div>   @*Bu satır student modeli içerisinde validation a uymayan bir kural görürse hata mesajı verir*@
+                    <div class="form-group">
+                        <label asp-for="Name">Adınız: </label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
 
-        <p>
-            <label asp-for="Email">Eposta: </label>
-            <input asp-for="Email" />
-            <span asp-validation-for="Email" class="text-danger"></span>
-        </p>
+                    <div class="form-group">
+                        <label asp-for="Email">Eposta: </label>
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
 
-        <p>
-            <label asp-for="Phone">Telefon: </label>
-            <input asp-for="Phone" />
-            <span asp-validation-for="Phone" class="text-danger"></span>
-        </p>
+                    <div class="form-group">
+                        <label asp-for="Phone">Telefon: </label>
+                        <input asp-for="Phone" class="form-control" />
+                        <span asp-validation-for="Phone" class="text-danger"></span>
+                    </div>
 
-        <p>
-            <label asp-for="Confirm">Kursa katılacak mısınız? </label>
-            <select asp-for="Confirm">
-                <option value=""> Seçiniz:</option>
-                <option value="true"> Evet, geliyorum</option>
-                <option value="false"> Hayır, gelmiyorum</option>
-            </select>
-        </p>
+                    <div class="form-group">
+                        <label asp-for="Confirm">Kursa katılacak mısınız? </label>
+                        <select asp-for="Confirm" class="form-control">
+                            <option value=""> Seçiniz:</option>
+                            <option value="true"> Evet, geliyorum</option>
+                            <option value="false"> Hayır, gelmiyorum</option>
+                        </select>
+                    </div>
 
-        <input type="submit" value="Submit" />
+                    <input type="submit" value="Submit" class="btn btn-primary btn-block" />
 
-    </form>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
 
     <!--<form action="/course/apply" method="POST">-->
     @*Tag helpers apply in zaten course controller içine bağlı bir view olduğu için için*@

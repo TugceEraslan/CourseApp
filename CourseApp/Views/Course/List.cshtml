@@ -11,36 +11,47 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/style.css">
     <title>Course</title>
 </head>
 <body>
-    <!--course/list view-->
-  <table>
-        <thead>
-            <tr>
-                <td>Name</td>
-                <td>Email</td>
-                <td>Phone</td>
-                <td>Confirm</td>
-            </tr>
-        </thead>
 
-        <tbody>
+    <div class="container m-4">
+        <div class="card mx-auto" style="width:500px;">
+            <div class="card-header">
+               Kursa Katılanlar
+            </div>
+            @*<div class="card-body">*@  @*Dış çerçeve gider*@
+                <!--course/list view-->
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <td>Name</td>
+                            <td>Email</td>
+                            <td>Phone</td>
+                            <td>Confirm</td>
+                        </tr>
+                    </thead>
 
-            @foreach (var student in Model)@*Tekrarlanacak alanlar foreach içinde <tbody> arasına yazılır*@
-            {
-                <tr>
-                    <td>@student.Name</td>
-                    <td>@student.Email</td>
-                    <td>@student.Phone</td>
-                    <td>@student.Confirm</td>
-                </tr>
-            }
+                    <tbody>
 
-        </tbody>
-  </table>
+                        @foreach (var student in Model)@*Tekrarlanacak alanlar foreach içinde <tbody> arasına yazılır*@
+                        {
+                            <tr>
+                                <td>@student.Name</td>
+                                <td>@student.Email</td>
+                                <td>@student.Phone</td>
+                                <td>@student.Confirm</td>
+                            </tr>
+                        }
 
+                    </tbody>
+                </table>
 
+            @*</div>*@
+        </div>
+    </div>
 
 
 </body>
