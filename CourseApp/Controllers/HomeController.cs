@@ -22,8 +22,28 @@ namespace CourseApp.Controllers
         }
 
 
+        public IActionResult Index2()
+        {
+
+            //return Content("Hello World!!!");
+            //return NotFound();
+            //return new EmptyResult();  Bomboş bir sayfa gelir.
+            //return RedirectToAction("List");
+            //return RedirectToAction("List","Course"); //Farklı bir Controller içindeki List metoduna gitmesi için 
+                                                      //List ten sonra gitmesi istenilen controller ın adı yazılmalı
+            return RedirectToAction("List", "Course",new {id=5,sortBy="name" });
+            //Eğer parametrede vermek istersek. id si 5 olan ve isme göre sıralı listelemek istersek
+            /*https://localhost:44334/Course/List/5?sortBy=name şeklinde*/
+
+        }
+
         //localhost:44383/home/about  => home/about.cshtml
         public IActionResult About()
+        {
+            return View();
+        }
+
+        public IActionResult List()
         {
             return View();
         }
