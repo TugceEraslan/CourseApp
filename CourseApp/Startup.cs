@@ -73,6 +73,14 @@ namespace CourseApp
 
             app.UseEndpoints(endpoints =>
             {
+                //Spesifik þemamý her zaman yukarda tutmam gerekir
+                endpoints.MapControllerRoute(
+                 "CoursesByReleased",   // Route'umuzun ismi olsun
+                 "courses/released/{year}/{month}",   // Template olsun
+                 new {Controller="Course", action="ByReleased"}, // Þemamýz
+                 new { year=@"\d{4}",month=@"\d{2}"}  // yýl parmetresi için 4 dijit,ay parametresi için 2 dijit rakam olmak zorunda
+                 );  
+
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");  // Bu alanlarý defaultta açýldýðýnda nereye yönlenmesini istiyorsak ona göre ayarlýyoruz

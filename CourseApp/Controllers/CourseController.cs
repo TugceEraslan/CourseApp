@@ -13,6 +13,13 @@ namespace CourseApp.Controllers
     //localhost:44383/course
     public class CourseController : Controller
     {
+
+        public ActionResult ByReleased(int year,int month)
+        {
+            return Content("year: " + year +" "+ "month: " +month);
+        }
+
+
         //localhost:44383/course/index  => course/index.cshtml
         public IActionResult Index()
         {
