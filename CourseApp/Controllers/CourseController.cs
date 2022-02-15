@@ -91,5 +91,29 @@ namespace CourseApp.Controllers
             return View(students);
         }
 
+
+        //Course/Details/2 : route
+        //Course/Details?id=2 : Query string 
+        //Query string in avantajı route şeması dışında istediğimiz kadare parametre oluşturup bunları gönderebiliriz
+        /*https://localhost:44334/course/details2?id=5&sortby=name  yukardaki duruma örnek*/ 
+        public ActionResult Details2(int id, string sortby)
+        {
+            return Content("id: "+ id +" "+"sortby: "+sortby);
+        }
+
+        public ActionResult CourseList(int? pageindex,string sortby)
+        {
+            if (!pageindex.HasValue)  // pageindex içinde herhangi bir değer yoksa 1 değerini ata
+                pageindex = 1;
+
+            if (string.IsNullOrWhiteSpace(sortby))
+                sortby = "name";  // varsayılanın sortby içine  name i ata . https://localhost:44334/course/courselist
+
+            /*Eğer kendimiz bir değer göndermek istersek  https://localhost:44334/course/courselist?pageindex=5 */
+
+            /*Eğer sortby içinde yapavcak olursak  https://localhost:44334/course/courselist?pageindex=5&sortby=surname */
+            return Content("pageindex: " + pageindex + " " + "sortby: " + sortby);
+        }
+
     }
 }
