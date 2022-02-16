@@ -1,4 +1,5 @@
 ﻿using CourseApp.Models;
+using CourseApp.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -23,16 +24,23 @@ namespace CourseApp.Controllers
         //localhost:44383/course/index  => course/index.cshtml
         public IActionResult Index()
         {
-            var kurs = new Course() {Id=1,Name="Komple Uygulamalı Web Geliştirme"};
 
-            //ViewData["course"] = kurs;
-            //ViewBag.course = kurs;
-            ViewBag.count = 10;  // ViewBag in içerisine bir değişken daha oluşturalım
+            //Elimizde 1 kurs ve 2 tane öğrenciden oluşan bir öğrenci listesi var
+            var kurs = new Course() { Id = 1, Name = "Komple Uygulamalı Web Geliştirme" };
 
-         /*   var viewresult = new ViewResult();
-            viewresult.ViewData.Model */ // viewdata veya aşağıdaki gibi return view içinde kurs nesnesini göndermek aynı şey
+            var ogrenciler = new List<Student>()
+            {
+                new Student() { Name = "Ahmet" },
+                new Student() { Name = "Ayşe" }
+            };
+            // Elemanları oluşturduktann sonra bir view model tanımlayalım
 
-            return View(kurs);
+            var viewmodel = new CourseStudentsViewModel();
+
+            viewmodel.Course = kurs;
+            viewmodel.Students = ogrenciler;
+
+            return View(viewmodel);
         }
 
         public ActionResult Action()
@@ -53,7 +61,7 @@ namespace CourseApp.Controllers
         // Name=value & Email=value & Phone=value & Confirm=value aşağıdaki parametreler bu aldıkları value lara karşılık gelmiş olacak
         // public IActionResult Apply(string Name,string Email,string Phone,bool Confirm)
         [HttpPost]
-        public IActionResult Apply(Student student)  // Apply metodu içinde bilgiyi paketleyeceğimiz bir model yapısı var.
+        public IActionResult Apply(StudentResponse student)  // Apply metodu içinde bilgiyi paketleyeceğimiz bir model yapısı var.
                                                      // Student tipinde bir bilgiyi form üzerinden direkt alabiliriz
         {
 

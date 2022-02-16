@@ -7,11 +7,11 @@ namespace CourseApp.Models
 {
     public static class Repository  // Bu sınıftan bir tane olacak ve içerisinde nesne oluşturulmayacak. Database görevinde olacak
     {
-        private static List<Student> _students = new List<Student>();  // List<Student>() dan örnek alacak
+        private static List<StudentResponse> _students = new List<StudentResponse>();  // List<Student>() dan örnek alacak
 
 
         // Repository.Students dediğimizde bize _student i geri döndürecek
-        public static List<Student> Students
+        public static List<StudentResponse> Students
         {         
             get
             {
@@ -20,7 +20,7 @@ namespace CourseApp.Models
         }
 
         // Repository.AddStudent(student)  student modeli de gönderirsek ekleme işlemi çalışır
-        public static void AddStudent(Student student)  // Dışardan student paramametresi alacak ama void olacak ki değer dönmesin. 
+        public static void AddStudent(StudentResponse student)  // Dışardan student paramametresi alacak ama void olacak ki değer dönmesin. 
         {           
             _students.Add(student);   // _students üzerine student ı eklemek
         }

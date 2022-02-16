@@ -1,5 +1,5 @@
-﻿@using CourseApp.Models
-@model Course
+﻿@using CourseApp.ViewModels
+@model CourseStudentsViewModel
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>Course</title>
@@ -7,12 +7,26 @@
 <body>
     @*course/index view*@
 
-    @*<h1>@( ((Course)ViewData["course"]).Name )</h1>
-    
-    <h2>@(((Course)ViewBag.course).Name)  </h2>
-    <h2>@ViewBag.count</h2>*@
+    <h1>@Model.Course.Name</h1>
 
-    @Model.Name
+    @if (Model.Students.Count == 0)
+    {
+        <text> Kursa katılımcı yok.</text>
+    }
+    else
+    {
+        <ul>
+            @foreach (var item in Model.Students)
+            {
+                <li>
+                    @item.Name
+                </li>
+
+            }
+        </ul>
+    }
+
+
 
 
 </body>
