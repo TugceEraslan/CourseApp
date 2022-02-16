@@ -7,11 +7,12 @@
 <body>
     @*course/index view*@
 
-    <h1>@( ((Course)ViewData["course"]).Name )</h1>
+    @*<h1>@( ((Course)ViewData["course"]).Name )</h1>
     
     <h2>@(((Course)ViewBag.course).Name)  </h2>
-    <h2>@ViewBag.count</h2>
+    <h2>@ViewBag.count</h2>*@
 
+    @Model.Name
 
 
 </body>

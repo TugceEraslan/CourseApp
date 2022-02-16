@@ -25,11 +25,14 @@ namespace CourseApp.Controllers
         {
             var kurs = new Course() {Id=1,Name="Komple Uygulamalı Web Geliştirme"};
 
-            ViewData["course"] = kurs;
-            ViewBag.course = kurs;
+            //ViewData["course"] = kurs;
+            //ViewBag.course = kurs;
             ViewBag.count = 10;  // ViewBag in içerisine bir değişken daha oluşturalım
 
-            return View();
+         /*   var viewresult = new ViewResult();
+            viewresult.ViewData.Model */ // viewdata veya aşağıdaki gibi return view içinde kurs nesnesini göndermek aynı şey
+
+            return View(kurs);
         }
 
         public ActionResult Action()
