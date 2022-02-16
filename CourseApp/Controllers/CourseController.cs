@@ -23,6 +23,12 @@ namespace CourseApp.Controllers
         //localhost:44383/course/index  => course/index.cshtml
         public IActionResult Index()
         {
+            var kurs = new Course() {Id=1,Name="Komple Uygulamalı Web Geliştirme"};
+
+            ViewData["course"] = kurs;
+            ViewBag.course = kurs;
+            ViewBag.count = 10;  // ViewBag in içerisine bir değişken daha oluşturalım
+
             return View();
         }
 

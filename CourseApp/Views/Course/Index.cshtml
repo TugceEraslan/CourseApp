@@ -1,8 +1,18 @@
-﻿<html xmlns="http://www.w3.org/1999/xhtml">
+﻿@using CourseApp.Models
+@model Course
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>Course</title>
 </head>
 <body>
-   course/index view
- </body>
+    @*course/index view*@
+
+    <h1>@( ((Course)ViewData["course"]).Name )</h1>
+    
+    <h2>@(((Course)ViewBag.course).Name)  </h2>
+    <h2>@ViewBag.count</h2>
+
+
+
+</body>
 </html>
