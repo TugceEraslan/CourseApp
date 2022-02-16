@@ -30,8 +30,10 @@ namespace CourseApp.Controllers
 
             var ogrenciler = new List<Student>()
             {
-                new Student() { Name = "Ahmet" },
-                new Student() { Name = "Ayşe" }
+                new Student() { Name = "Ahmet"},
+                new Student() { Name = "Ayşe" },
+                new Student() { Name = "Mehmet" },
+                new Student() { Name = "Çınar" }
             };
             // Elemanları oluşturduktann sonra bir view model tanımlayalım
 

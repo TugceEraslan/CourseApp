@@ -1,13 +1,24 @@
 ﻿@using CourseApp.ViewModels
 @model CourseStudentsViewModel
+
+@{ 
+    var classname = Model.Students.Count > 2 ? "popular" : null;  /*Burda sayfaya gelen model ile sorgulama yaptık*/
+}
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+    <style>
+        .popular{        /*h1 etiketi için popular class ını dinamik olarak ekleyelim*/
+            color:green;
+            font-weight:700;
+        }
+    </style>
     <title>Course</title>
 </head>
 <body>
     @*course/index view*@
 
-    <h1>@Model.Course.Name</h1>
+    <h1 class="@classname">@Model.Course.Name</h1>  @* @classname in değişken olduğunun anlaşılması için başına @ işareti ekleniyor*@
 
     @if (Model.Students.Count == 0)
     {
