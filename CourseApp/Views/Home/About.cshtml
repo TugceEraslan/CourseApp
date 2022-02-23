@@ -1,8 +1,18 @@
-﻿<html xmlns="http://www.w3.org/1999/xhtml">
+﻿@*@using CourseApp.Models*@         @*Bu sadece categori için kullandığım referanstı*@
+@using CourseApp.ViewModels
+@*@model IEnumerable<Category>*@    @*Bu sadece categori yolladığım durumlar içindi*@
+@model ProductsCategoriesViewModel
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>About</title>
 </head>
 <body>
     home/about view
 </body>
+
+<div id="header">
+    Header
+</div>
+@Html.Partial("_Menu", Model.Categories)
 </html>
