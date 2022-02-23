@@ -1,0 +1,19 @@
+﻿@using CourseApp.Models
+
+@model IEnumerable<Category>
+@*Gönderdiğimiz model kendi içeriğini yani listesini oluşturması için  IEnumerable<Category> şeklinde bir listeyi model olarak önderiyoruz*@
+
+<div id="menu">
+    <ul>
+
+        @foreach (var category in Model)
+        {
+            <li>
+                <a href="/">@category.Name</a>
+            </li>
+
+        }
+
+    </ul>
+
+</div>
